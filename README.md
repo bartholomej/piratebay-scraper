@@ -1,6 +1,12 @@
+[![npm version](https://badge.fury.io/js/piratebay-scraper.svg)](https://badge.fury.io/js/piratebay-scraper)
+![](https://github.com/bartholomej/piratebay-scraper/workflows/Build%20&%20Publish/badge.svg)
+
 # The PirateBay Scraper
 
-> Simple npm library for scraping The PirateBay
+> Tiny NPM library for scraping The PirateBay
+>
+> - No dependencies!
+> - TypeScript
 
 ## Install
 

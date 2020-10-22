@@ -1,7 +1,7 @@
 {
   "name": "piratebay-scraper",
   "version": "0.5.4",
-  "description": "The PirateBay Scraper",
+  "description": "Simple NPM library for scraping The PirateBay",
   "main": "index.js",
   "author": "BART! <bart@bartweb.cz>",
   "scripts": {
@@ -46,8 +46,14 @@
       "pre-commit": "pretty-quick --staged && yarn run lint"
     }
   },
+  "keywords": [
+    "piratebay",
+    "torrent",
+    "magnet-link",
+    "scraper"
+  ],
   "engines": {
-    "node": ">= 12"
+    "node": ">= 10"
   },
   "license": "MIT"
 }
