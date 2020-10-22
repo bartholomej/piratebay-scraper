@@ -1,5 +1,4 @@
 import { Results } from '@interfaces/app.interface';
-import fetch from 'node-fetch';
 import { parse } from 'node-html-parser';
 import { searchUrl } from './vars';
 
