@@ -1,0 +1,50 @@
+{
+  "name": "piratebay-scraper",
+  "version": "0.5.0",
+  "description": "The PirateBay Scraper",
+  "main": "index.js",
+  "author": "BART! <bart@bartweb.cz>",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc",
+    "tsc": "tsc",
+    "demo": "ts-node demo",
+    "lint": "eslint ./src/**/**/* --fix"
+  },
+  "repository": {
+    "url": "git+https://github.com/bartholomej/piratebay-scraper.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/bartholomej/piratebay-scraper/issues"
+  },
+  "homepage": "https://github.com/bartholomej/piratebay-scraper#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "node-html-parser": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.2",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "eslint": "^7.11.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && yarn run lint"
+    }
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "license": "MIT"
+}
