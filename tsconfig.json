@@ -11,13 +11,17 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "strictNullChecks": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "./dist",
     "strict": true,
+    "declaration": true,
+    "pretty": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true
-  }
+  },
+  "include": ["src"],
+  "exclude": ["dist/**/*", "*/tests/**/*"]
 }
