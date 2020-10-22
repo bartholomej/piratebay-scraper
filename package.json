@@ -9,7 +9,11 @@
     "build": "tsc && ts-node scripts/dist-prepare",
     "tsc": "tsc",
     "demo": "ts-node demo",
-    "lint": "eslint ./src/**/**/* --fix"
+    "lint": "eslint ./src/**/**/* --fix",
+    "postversion": "git push && git push --follow-tags",
+    "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
+    "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",
+    "release:major": "git checkout master && npm version major -m \"chore(update): major release %s 💥 \""
   },
   "repository": {
     "url": "git+https://github.com/bartholomej/piratebay-scraper.git",
