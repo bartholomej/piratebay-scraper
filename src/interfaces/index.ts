@@ -1,4 +1,4 @@
-export interface Results {
+export interface TPBResult {
   title: string;
   seeders: number;
   leechers: number;

@@ -1,5 +1,5 @@
-import { Results } from '@interfaces/app.interface';
 import { parse } from 'node-html-parser';
+import { TPBResult } from './interfaces';
 import { searchUrl } from './vars';
 
 export class ThePirateBayScraper {
@@ -9,12 +9,12 @@ export class ThePirateBayScraper {
     return await response.text();
   }
 
-  async search(query: string): Promise<Results[]> {
-    const torrents: Results[] = [];
+  async search(query: string): Promise<TPBResult[]> {
+    const torrents: TPBResult[] = [];
     const response = await this.fetchAsync(query);
 
     const node = parse(response).querySelectorAll('#searchResult tr');
-    // Skip heading
+    // Skip table heading
     node.shift();
     node.pop();
 
