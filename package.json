@@ -1,6 +1,6 @@
 {
   "name": "piratebay-scraper",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "The PirateBay Scraper",
   "main": "index.js",
   "author": "BART! <bart@bartweb.cz>",
