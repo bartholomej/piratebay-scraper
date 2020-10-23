@@ -1,5 +1,5 @@
 import { TPBResult } from './interfaces';
-import { searchUrl } from './vars';
+import { PAGE_SIZE, searchUrl } from './vars';
 
 export class ThePirateBayScraper {
   async fetchAsync(query: string): Promise<string> {
@@ -16,11 +16,17 @@ export class ThePirateBayScraper {
     const virtualNode = document.createElement('html');
     virtualNode.innerHTML = response;
 
-    const node: HTMLTableRowElement[] = [].slice.call(
+    // Get all rows (without header)
+    const items: HTMLTableRowElement[] = [].slice.call(
       virtualNode.querySelectorAll('#searchResult tbody tr:not(.header)')
     );
 
-    for (const item of node) {
+    // Remove last row which is usually pagination
+    if (items.length > PAGE_SIZE) {
+      items.pop();
+    }
+
+    for (const item of items) {
       const title = item.querySelector('a.detLink').textContent;
       const link = (item.querySelector(
         'a[title="Download this torrent using magnet"]'
