@@ -84,6 +84,21 @@ I physically can't. I have nowhere to store it. I don't even have a server datab
 
 That's why, with Piratebay Scraper, what happens on your device stays on your device till disappear.
 
+## Development (notes for me)
+
+### Publish Stable
+
+```shell
+yarn release:patch
+# yarn release:minor
+# yarn release:major
+```
+
+### Publish next channel
+
+1. Bump version `-beta.0` in `package.json`
+2. `yarn publish:next`
+
 ## License
 
 Copyright &copy; 2021 [Lukas Bartak](http://bartweb.cz)
