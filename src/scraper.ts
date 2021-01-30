@@ -1,5 +1,14 @@
 import jsdom from 'jsdom';
 import fetch from 'node-fetch';
+import {
+  getAttrs,
+  getLink,
+  getSeedLeech,
+  getSize,
+  getTitle,
+  getUploaded,
+  getUploader
+} from './helpers/scraper.helper';
 import { TPBResult } from './interfaces';
 import { PAGE_SIZE, searchUrl } from './vars';
 
@@ -29,25 +38,17 @@ export class ThePirateBayScraper {
     }
 
     for (const item of items) {
-      const title = item.querySelector('a.detLink').textContent;
-      const link = (item.querySelector(
-        'a[title="Download this torrent using magnet"]'
-      ) as HTMLAnchorElement).href;
-      const seedLeech = [].slice.call(item.querySelectorAll('td[align="right"]'));
-      const attrs = item.querySelectorAll('font.detDesc')[0].textContent.split(' ');
-
-      const size = attrs[3].replace(',', '');
-      const uploaded = attrs[1].split(' ').join('-').replace(',', '');
-      const uploader = attrs[7];
+      const [seeders, leechers] = getSeedLeech(item);
+      const attrs = getAttrs(item);
 
       torrents.push({
-        title,
-        seeders: +seedLeech[0].textContent,
-        leechers: +seedLeech[1].textContent,
-        uploaded,
-        uploader,
-        size,
-        link
+        title: getTitle(item),
+        seeders,
+        leechers,
+        uploaded: getUploaded(attrs),
+        uploader: getUploader(attrs),
+        size: getSize(attrs),
+        link: getLink(item)
       });
     }
     console.log(torrents);
