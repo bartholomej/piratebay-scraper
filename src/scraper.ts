@@ -51,7 +51,6 @@ export class ThePirateBayScraper {
         link: getLink(item)
       });
     }
-    console.log(torrents);
     return torrents;
   }
 }
