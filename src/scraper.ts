@@ -13,13 +13,13 @@ import { TPBResult } from './interfaces';
 import { PAGE_SIZE, searchUrl } from './vars';
 
 export class ThePirateBayScraper {
-  async fetchAsync(query: string): Promise<string> {
+  private async fetchAsync(query: string): Promise<string> {
     const url = searchUrl(query);
     const response = await fetch(url);
     return await response.text();
   }
 
-  async search(query: string): Promise<TPBResult[]> {
+  public async search(query: string): Promise<TPBResult[]> {
     const torrents: TPBResult[] = [];
     const response = await this.fetchAsync(query);
 
