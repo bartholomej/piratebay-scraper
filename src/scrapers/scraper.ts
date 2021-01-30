@@ -1,4 +1,4 @@
-import jsdom from 'jsdom';
+import jsdom from 'jsdom'; // Uncomment whe you run in nodejs. Debugging.
 import { fetchPage } from '../fetchers/fetcher';
 import {
   getAttrs,
@@ -16,9 +16,15 @@ export class ThePirateBayScraper {
   public async search(query: string): Promise<TPBResult[]> {
     const response = await fetchPage(query);
 
-    const { JSDOM } = jsdom;
-    // Create virtual node for DOM traversing
-    const virtualNode = new JSDOM(response).window.document;
+    /**
+     * Create virtual node for DOM traversing
+     * Choose nodejs OR browser version
+     */
+
+    // Nodejs version
+    const virtualNode = this.nodeDOM(response); // Uncomment whe you run in nodejs. Debugging.
+    // Browser version
+    // const virtualNode = this.browserDOM(response);
 
     // Get all rows (without header)
     const items: HTMLTableRowElement[] = [].slice.call(
@@ -26,6 +32,17 @@ export class ThePirateBayScraper {
     );
 
     return this.buildItems(items);
+  }
+
+  private browserDOM(response: string): HTMLHtmlElement {
+    const html = document.createElement('html');
+    html.innerHTML = response;
+    return html;
+  }
+
+  private nodeDOM(response: string): Document {
+    const { JSDOM } = jsdom;
+    return new JSDOM(response).window.document;
   }
 
   private buildItems(items: HTMLTableRowElement[]): TPBResult[] {
