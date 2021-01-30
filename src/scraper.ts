@@ -1,3 +1,5 @@
+import jsdom from 'jsdom';
+import fetch from 'node-fetch';
 import { TPBResult } from './interfaces';
 import { PAGE_SIZE, searchUrl } from './vars';
 
@@ -12,9 +14,9 @@ export class ThePirateBayScraper {
     const torrents: TPBResult[] = [];
     const response = await this.fetchAsync(query);
 
+    const { JSDOM } = jsdom;
     // Create virtual node for DOM traversing
-    const virtualNode = document.createElement('html');
-    virtualNode.innerHTML = response;
+    const virtualNode = new JSDOM(response).window.document;
 
     // Get all rows (without header)
     const items: HTMLTableRowElement[] = [].slice.call(
@@ -48,6 +50,7 @@ export class ThePirateBayScraper {
         link
       });
     }
+    console.log(torrents);
     return torrents;
   }
 }
