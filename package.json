@@ -14,7 +14,7 @@
     "demo": "ts-node demo",
     "lint": "eslint ./src/**/**/* --fix",
     "postversion": "git push && git push --follow-tags",
-    "publish:next": "yarn && yarn build && cd dist && npm publish --tag next",
+    "publish:next": "yarn && yarn build && cd dist && npm publish --tag beta",
     "release:beta": "npm version prerelease -m \"chore(update): prelease %s β\"",
     "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
     "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",
@@ -41,6 +41,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
+    "jsdom": "^16.4.0",
+    "node-fetch": "^2.6.1",
     "npm-prepare-dist": "^0.2.0",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
@@ -63,9 +65,5 @@
   "engines": {
     "node": ">= 12"
   },
-  "license": "MIT",
-  "dependencies": {
-    "jsdom": "^16.4.0",
-    "node-fetch": "^2.6.1"
-  }
+  "license": "MIT"
 }
