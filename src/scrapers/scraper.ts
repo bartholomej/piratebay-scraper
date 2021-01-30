@@ -1,4 +1,4 @@
-import jsdom from 'jsdom'; // Uncomment whe you run in nodejs. Debugging.
+// import jsdom from 'jsdom'; // Uncomment whe you run in nodejs. Debugging.
 import { fetchPage } from '../fetchers/fetcher';
 import {
   getAttrs,
@@ -22,9 +22,9 @@ export class ThePirateBayScraper {
      */
 
     // Nodejs version
-    const virtualNode = this.nodeDOM(response); // Uncomment whe you run in nodejs. Debugging.
+    // const virtualNode = this.nodeDOM(response); // Uncomment whe you run in nodejs. Debugging.
     // Browser version
-    // const virtualNode = this.browserDOM(response);
+    const virtualNode = this.browserDOM(response);
 
     // Get all rows (without header)
     const items: HTMLTableRowElement[] = [].slice.call(
@@ -40,10 +40,10 @@ export class ThePirateBayScraper {
     return html;
   }
 
-  private nodeDOM(response: string): Document {
-    const { JSDOM } = jsdom;
-    return new JSDOM(response).window.document;
-  }
+  // private nodeDOM(response: string): Document {
+  //   const { JSDOM } = jsdom;
+  //   return new JSDOM(response).window.document;
+  // }
 
   private buildItems(items: HTMLTableRowElement[]): TPBResult[] {
     const torrents: TPBResult[] = [];

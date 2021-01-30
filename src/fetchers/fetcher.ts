@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'; // Uncomment whe you run in nodejs. Debugging.
+// import fetch from 'node-fetch'; // Uncomment whe you run in nodejs. Debugging.
 import { searchUrl } from '../vars';
 
 export const fetchPage = async (query: string): Promise<string> => {
