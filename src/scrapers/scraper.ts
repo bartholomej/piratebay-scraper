@@ -1,5 +1,5 @@
 import jsdom from 'jsdom';
-import fetch from 'node-fetch';
+import { fetchPage } from '../fetchers/fetcher';
 import {
   getAttrs,
   getLink,
@@ -8,20 +8,13 @@ import {
   getTitle,
   getUploaded,
   getUploader
-} from './helpers/scraper.helper';
-import { TPBResult } from './interfaces';
-import { PAGE_SIZE, searchUrl } from './vars';
+} from '../helpers/scraper.helper';
+import { TPBResult } from '../interfaces';
+import { PAGE_SIZE } from '../vars';
 
 export class ThePirateBayScraper {
-  private async fetchAsync(query: string): Promise<string> {
-    const url = searchUrl(query);
-    const response = await fetch(url);
-    return await response.text();
-  }
-
   public async search(query: string): Promise<TPBResult[]> {
-    const torrents: TPBResult[] = [];
-    const response = await this.fetchAsync(query);
+    const response = await fetchPage(query);
 
     const { JSDOM } = jsdom;
     // Create virtual node for DOM traversing
@@ -31,6 +24,12 @@ export class ThePirateBayScraper {
     const items: HTMLTableRowElement[] = [].slice.call(
       virtualNode.querySelectorAll('#searchResult tbody tr:not(.header)')
     );
+
+    return this.buildItems(items);
+  }
+
+  private buildItems(items: HTMLTableRowElement[]): TPBResult[] {
+    const torrents: TPBResult[] = [];
 
     // Remove last row which is usually pagination
     if (items.length > PAGE_SIZE) {

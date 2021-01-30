@@ -1,5 +1,5 @@
 import { TPBResult } from '../src/interfaces';
-import { ThePirateBayScraper } from '../src/scraper';
+import { ThePirateBayScraper } from '../src/scrapers/scraper';
 
 const SEARCH = 'The Stranger 1946';
 
