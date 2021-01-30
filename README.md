@@ -27,11 +27,9 @@ npm install piratebay-scraper
 Let's find some public domain movie from [this list](https://en.wikipedia.org/wiki/List_of_films_in_the_public_domain_in_the_United_States): **Orson Welles – The Stranger (1946)**
 
 ```javascript
-import { ThePirateBayScraper } from 'piratebay-scraper';
+import { piratebay } from 'piratebay-scraper';
 
-const TPBScraper = new ThePirateBayScraper();
-
-TPBScraper.search('The Stranger 1946');
+piratebay.search('The Stranger 1946');
 ```
 
 ## Results

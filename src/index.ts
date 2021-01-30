@@ -1,1 +1,3 @@
-export { ThePirateBayScraper } from './scraper';
+import { ThePirateBayScraper } from './scraper';
+
+export const piratebay = new ThePirateBayScraper();

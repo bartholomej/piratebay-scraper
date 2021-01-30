@@ -1,5 +1,3 @@
-import { ThePirateBayScraper } from './src/scraper';
+import { piratebay } from './src/';
 
-const TPBScraper = new ThePirateBayScraper();
-
-TPBScraper.search('The Stranger 1946');
+piratebay.search('The Stranger 1946');
