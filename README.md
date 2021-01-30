@@ -6,8 +6,8 @@
 
 > Tiny NPM library for scraping The PirateBay
 >
-> - No dependencies!
-> - TypeScript 100% (Build in JavaScript)
+> - No dependencies! (Only fetch polyfill)
+> - TypeScript 100%
 
 ## Install
 
