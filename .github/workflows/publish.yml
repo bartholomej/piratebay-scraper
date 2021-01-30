@@ -41,6 +41,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+      - name: Upload code coverage
+        run: bash <(curl -s https://codecov.io/bash)
+
       # - name: Set up package for GPR
       #   run: yarn gpr:setup
 
