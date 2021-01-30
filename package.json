@@ -14,7 +14,7 @@
     "demo": "ts-node demo",
     "lint": "eslint ./src/**/**/* --fix",
     "postversion": "git push && git push --follow-tags",
-    "publish:next": "yarn && yarn build && cd dist && npm publish --tag beta",
+    "publish:beta": "yarn && yarn build && npm publish --folder dist --tag beta",
     "release:beta": "npm version prerelease -m \"chore(update): prelease %s β\"",
     "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
     "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",

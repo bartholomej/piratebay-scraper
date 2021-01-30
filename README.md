@@ -93,10 +93,10 @@ yarn release:patch
 # yarn release:major
 ```
 
-### Publish next channel
+### Publish beta channel
 
 1. Bump version `-beta.0` in `package.json`
-2. `yarn publish:next`
+2. `yarn publish:beta`
 
 ## License
 
