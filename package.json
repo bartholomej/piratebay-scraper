@@ -1,6 +1,6 @@
 {
   "name": "piratebay-scraper",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Simple NPM library for scraping The PirateBay",
   "main": "index.js",
   "author": "BART! <bart@bartweb.cz>",
