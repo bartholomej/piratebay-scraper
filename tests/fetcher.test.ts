@@ -10,9 +10,19 @@ describe('Fetch movie page', () => {
     const html = await fetchPage(url);
     expect(html).toContain('Stranger');
   });
+});
 
-  test('Fetch with provider: https://thepiratebay.zone/', async () => {
+describe('Fetch movie page: Provider 2', () => {
+  test('Fetch Orson Wells movie', async () => {
     const url = searchUrl(SEARCH, 'https://thepiratebay.zone/');
+    const html = await fetchPage(url);
+    expect(html).toContain('Stranger');
+  });
+});
+
+describe('Fetch movie page: Provider 3', () => {
+  test('Fetch Orson Wells movie', async () => {
+    const url = searchUrl(SEARCH, 'https://pirateproxy.live/');
     const html = await fetchPage(url);
     expect(html).toContain('Stranger');
   });
