@@ -1,8 +1,10 @@
 import fetch from 'cross-fetch';
+import { TPBProvider } from '../interfaces';
 import { searchUrl } from '../vars';
 
-export const fetchPage = async (query: string): Promise<string> => {
-  const url = searchUrl(query);
+export const fetchPage = async (query: string, provider?: TPBProvider): Promise<string> => {
+  const url = searchUrl(query, provider);
+
   try {
     const response = await fetch(url);
     if (response.status >= 400 && response.status < 600) {
@@ -10,7 +12,7 @@ export const fetchPage = async (query: string): Promise<string> => {
     }
     return await response.text();
   } catch (e) {
-    console.error(e);
+    console.error(`piratebay-scraper: Page ${url} not found!`);
     return 'Error';
   }
 };

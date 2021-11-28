@@ -9,12 +9,12 @@ import {
   getUploaded,
   getUploader
 } from '../helpers/scraper.helper';
-import { TPBResult } from '../interfaces';
+import { TPBProvider, TPBResult } from '../interfaces';
 import { PAGE_SIZE } from '../vars';
 
 export class ThePirateBayScraper {
-  public async search(query: string): Promise<TPBResult[]> {
-    const response = await fetchPage(query);
+  public async search(query: string, provider?: TPBProvider): Promise<TPBResult[]> {
+    const response = await fetchPage(query, provider);
 
     /**
      * Create virtual node for DOM traversing

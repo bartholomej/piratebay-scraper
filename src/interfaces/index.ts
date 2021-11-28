@@ -7,3 +7,5 @@ export interface TPBResult {
   size: string;
   link: string;
 }
+
+export type TPBProvider = 'https://thepiratebay.zone/' | 'https://pirateproxy.live/' | string;

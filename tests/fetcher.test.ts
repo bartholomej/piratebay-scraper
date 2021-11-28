@@ -10,4 +10,10 @@ describe('Fetch movie page', () => {
     const html = await fetchPage(url);
     expect(html).toContain('Stranger');
   });
+
+  test('Fetch with provider: https://thepiratebay.zone/', async () => {
+    const url = searchUrl(SEARCH, 'https://thepiratebay.zone/');
+    const html = await fetchPage(url);
+    expect(html).toContain('Stranger');
+  });
 });
