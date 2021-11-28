@@ -12,7 +12,6 @@ export const fetchPage = async (query: string, provider?: TPBProvider): Promise<
     }
     return await response.text();
   } catch (e) {
-    console.error(`piratebay-scraper: Page ${url} not found!`);
-    return 'Error';
+    throw new Error(`piratebay-scraper: Page ${url} not found!`);
   }
 };
