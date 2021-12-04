@@ -2,25 +2,20 @@
 ![](https://github.com/bartholomej/piratebay-scraper/workflows/Build%20&%20Publish/badge.svg)
 [![codecov](https://codecov.io/gh/bartholomej/piratebay-scraper/branch/master/graph/badge.svg?token=GPNWF9USIB)](https://codecov.io/gh/bartholomej/piratebay-scraper)
 
-# The PirateBay Scraper
+# The PirateBay API (Scraper)
 
-> Tiny NPM library for scraping The PirateBay
+> Tiny Node.js library for scraping The PirateBay
 >
-> - No dependencies! (Only fetch polyfill)
-> - TypeScript 100%
+> - JavaScript/TypeScript
+> - Can also be used on server _(λ function, firebase function, service workers, browser extensions, ...)_
 
 ## Install
 
-via yarn
-
-```bash
-yarn add piratebay-scraper
-```
-
-via npm
+via `npm` or `yarn`
 
 ```bash
 npm install piratebay-scraper
+# yarn add piratebay-scraper
 ```
 
 ## Usage
@@ -30,7 +25,7 @@ Let's find some public domain movie from [this list](https://en.wikipedia.org/wi
 ```javascript
 import { piratebay } from 'piratebay-scraper';
 
-piratebay.search('The Stranger 1946');
+piratebay.search('The Stranger 1946').then((res) => console.log(res));
 ```
 
 ## Results
