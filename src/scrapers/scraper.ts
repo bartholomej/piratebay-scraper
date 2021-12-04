@@ -1,4 +1,4 @@
-// import jsdom from 'jsdom'; // Uncomment whe you run in nodejs. Debugging.
+import { HTMLElement, parse } from 'node-html-parser';
 import { fetchPage } from '../fetchers/fetcher';
 import {
   getAttrs,
@@ -22,32 +22,30 @@ export class ThePirateBayScraper {
      */
 
     // Nodejs version
-    // const virtualNode = this.nodeDOM(response); // Uncomment whe you run in nodejs. Debugging.
+    const virtualNode = this.nodeDOM(response); // Uncomment when you run in nodejs. Debugging.
+
     // Browser version
-    const virtualNode = this.browserDOM(response);
+    // const virtualNode = this.browserDOM(response);
 
     // Get all rows (without header)
     const items: HTMLTableRowElement[] = [].slice.call(
-      virtualNode.querySelectorAll('#searchResult tbody tr:not(.header)')
+      virtualNode.querySelectorAll('#searchResult tr:not(:first-child)')
     );
-
     return this.buildItems(items);
   }
 
-  private browserDOM(response: string): HTMLHtmlElement {
-    const html = document.createElement('html');
-    html.innerHTML = response;
-    return html;
-  }
-
-  // private nodeDOM(response: string): Document {
-  //   const { JSDOM } = jsdom;
-  //   return new JSDOM(response).window.document;
+  // private browserDOM(response: string): HTMLHtmlElement {
+  //   const html = document.createElement('html');
+  //   html.innerHTML = response;
+  //   return html;
   // }
+
+  private nodeDOM(response: string): HTMLElement {
+    return parse(response);
+  }
 
   private buildItems(items: HTMLTableRowElement[]): TPBResult[] {
     const torrents: TPBResult[] = [];
-
     // Remove last row which is usually pagination
     if (items.length > PAGE_SIZE) {
       items.pop();

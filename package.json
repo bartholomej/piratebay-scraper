@@ -29,12 +29,13 @@
   },
   "homepage": "https://github.com/bartholomej/piratebay-scraper#readme",
   "dependencies": {
-    "cross-fetch": "^3.1.4"
+    "node-fetch": "cjs",
+    "node-html-parser": "^5.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
-    "@types/jsdom": "^16.2.13",
     "@types/node": "^16.11.10",
+    "@types/node-fetch": "^2.5.12",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
@@ -43,7 +44,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
-    "jsdom": "^18.1.1",
     "npm-prepare-dist": "^0.3.3",
     "prettier": "^2.5.0",
     "pretty-quick": "^3.1.2",

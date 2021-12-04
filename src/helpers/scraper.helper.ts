@@ -6,7 +6,7 @@ export const getLink = (el: HTMLElement): string => {
   const link = el.querySelector(
     'a[title="Download this torrent using magnet"]'
   ) as HTMLAnchorElement;
-  return link?.href;
+  return link?.getAttribute('href');
 };
 
 export const getSeedLeech = (el: HTMLElement): number[] => {

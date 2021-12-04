@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch';
+import fetch from 'node-fetch';
 import { TPBProvider } from '../interfaces';
 import { searchUrl } from '../vars';
 
