@@ -95,7 +95,7 @@ yarn release:patch
 
 ## License
 
-Copyright &copy; 2021 [Lukas Bartak](http://bartweb.cz)
+Copyright &copy; 2025 [Lukas Bartak](http://bartweb.cz)
 
 Proudly powered by nature 🗻, wind 💨, tea 🍵 and beer 🍺 ;)
 
