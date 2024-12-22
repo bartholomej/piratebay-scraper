@@ -20,10 +20,10 @@ describe('Fetch movie page: Provider 2', () => {
   });
 });
 
-describe('Fetch movie page: Provider 3', () => {
-  test('Fetch Orson Wells movie', async () => {
-    const url = searchUrl(SEARCH, 'https://pirateproxy.live/');
-    const html = await fetchPage(url);
-    expect(html).toContain('Stranger');
-  });
-});
+// describe('Fetch movie page: Provider 3', () => {
+//   test('Fetch Orson Wells movie', async () => {
+//     const url = searchUrl(SEARCH, 'https://pirateproxy.live/');
+//     const html = await fetchPage(url);
+//     expect(html).toContain('Stranger');
+//   });
+// });

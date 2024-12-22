@@ -8,4 +8,4 @@ export interface TPBResult {
   link: string;
 }
 
-export type TPBProvider = 'https://thepiratebay.zone/' | 'https://pirateproxy.live/' | string;
+export type TPBProvider = 'https://thepiratebay.zone/' | 'https://pirateproxy.live/';
