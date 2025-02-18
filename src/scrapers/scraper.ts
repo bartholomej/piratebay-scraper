@@ -1,5 +1,5 @@
 import { HTMLElement, parse } from 'node-html-parser';
-import { fetchPage } from '../fetchers/fetcher';
+import { fetchPage } from '../fetchers/fetcher.js';
 import {
   getAttrs,
   getLink,
@@ -8,9 +8,9 @@ import {
   getTitle,
   getUploaded,
   getUploader
-} from '../helpers/scraper.helper';
-import { TPBProvider, TPBResult } from '../interfaces';
-import { PAGE_SIZE } from '../vars';
+} from '../helpers/scraper.helper.js';
+import { TPBProvider, TPBResult } from '../interfaces/index.js';
+import { PAGE_SIZE } from '../vars.js';
 
 export class ThePirateBayScraper {
   public async search(query: string, provider?: TPBProvider): Promise<TPBResult[]> {

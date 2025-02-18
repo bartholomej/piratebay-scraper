@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ESNext",
     "lib": ["dom"],
     "types": ["node"],
     "baseUrl": "./src",
@@ -9,7 +9,7 @@
       "@services/*": ["services/*"]
     },
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "NodeNext",
     "strictNullChecks": false,
     "sourceMap": false,
     "outDir": "./dist",
@@ -17,6 +17,7 @@
     "declaration": true,
     "pretty": true,
     "skipLibCheck": true,
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "alwaysStrict": true,
     "noImplicitAny": true,

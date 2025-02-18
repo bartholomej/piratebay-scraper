@@ -1,4 +1,4 @@
-import { TPBProvider } from './interfaces';
+import { TPBProvider } from './interfaces/index.js';
 
 const DEFAULT_PROVIDER: TPBProvider = 'https://thepiratebay.zone';
 

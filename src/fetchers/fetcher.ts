@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import { TPBProvider } from '../interfaces';
-import { searchUrl } from '../vars';
+import { TPBProvider } from '../interfaces/index.js';
+import { searchUrl } from '../vars.js';
 
 export const fetchPage = async (query: string, provider?: TPBProvider): Promise<string> => {
   const url = searchUrl(query, provider);
