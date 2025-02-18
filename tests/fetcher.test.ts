@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { fetchPage } from '../src/fetchers/fetcher';
 
 const SEARCH = 'The Stranger 1946';

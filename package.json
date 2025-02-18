@@ -4,15 +4,17 @@
   "description": "Simple NPM library for scraping The PirateBay",
   "main": "index.js",
   "author": "BART! <bart@bartweb.cz>",
+  "type": "module",
   "scripts": {
     "start": "tsc -w",
     "prebuild": "rimraf dist",
     "build": "tsc",
     "postbuild": "npm-prepare-dist",
     "tsc": "tsc",
-    "test": "jest",
+    "test": "vitest",
     "demo": "ts-node demo",
-    "lint": "eslint ./src/**/**/* --fix",
+    "lint": "npx lint-staged",
+    "prepare": "husky",
     "postversion": "git push && git push --follow-tags",
     "publish:beta": "yarn && yarn build && npm publish --folder dist --tag beta",
     "release:beta": "npm version prerelease -m \"chore(update): prelease %s β\"",
@@ -29,28 +31,27 @@
   },
   "homepage": "https://github.com/bartholomej/piratebay-scraper#readme",
   "dependencies": {
-    "node-fetch": "cjs",
-    "node-html-parser": "^5.1.0"
+    "node-fetch": "3.3.2",
+    "node-html-parser": "^7.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.11",
-    "@types/node-fetch": "^2.5.12",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
-    "eslint": "^8.4.0",
+    "@types/node": "^22.13.4",
+    "@types/node-fetch": "^2.6.12",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "@vitest/coverage-v8": "^3.0.6",
+    "eslint": "^9.20.1",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "jest": "^27.4.3",
-    "npm-prepare-dist": "^0.3.3",
-    "prettier": "^2.5.1",
-    "pretty-quick": "^3.1.2",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^27.0.7",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "npm-prepare-dist": "^0.5.0",
+    "prettier": "^3.5.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "vitest": "^0.34.1"
   },
   "keywords": [
     "piratebay",
@@ -58,6 +59,10 @@
     "magnet-link",
     "scraper"
   ],
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": "eslint --fix",
+    "**/**/*.{js,ts,tsx}": "eslint --fix"
+  },
   "engines": {
     "node": ">= 12"
   },

@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { searchUrl } from '../src/vars';
 
 describe('Get Url', () => {

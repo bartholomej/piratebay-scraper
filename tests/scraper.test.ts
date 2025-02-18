@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { TPBResult } from '../src/interfaces';
 import { ThePirateBayScraper } from '../src/scrapers/scraper';
 
