@@ -15,9 +15,27 @@ const compat = new FlatCompat({
   allConfig: js.configs.all
 });
 
+const googleConfigs = compat.extends('google').map(config => {
+  if (config.rules) {
+    delete config.rules['valid-jsdoc'];
+    delete config.rules['require-jsdoc'];
+  }
+  return {
+    ...config,
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs']
+  };
+});
+
+const prettierConfigs = compat.extends('plugin:prettier/recommended').map(config => ({
+  ...config,
+  files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs']
+}));
+
 export default [
-  ...compat.extends('google', 'plugin:prettier/recommended'),
+  ...googleConfigs,
+  ...prettierConfigs,
   {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs'],
     plugins: {
       '@typescript-eslint': typescriptEslint,
       prettier
@@ -37,7 +55,6 @@ export default [
     },
 
     rules: {
-      'require-jsdoc': 'off',
       'no-unused-vars': 'off',
 
       '@typescript-eslint/no-unused-vars': [

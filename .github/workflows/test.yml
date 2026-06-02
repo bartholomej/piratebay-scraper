@@ -1,35 +1,33 @@
-name: Build
+name: 🧪 Build and Test [CRON]
 
 on:
   schedule:
     - cron: '0 9 * * TUE'
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    name: 🧪 Build and Test
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+
+      - name: 📦 Enable Corepack
+        run: corepack enable
+
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 26
+          cache: 'yarn'
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
+      - name: 📦 Install dependencies
+        run: yarn install --immutable
 
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build app
+      - name: 🏗️ Build app
         run: yarn build
 
-      - name: Run tests
-        run: yarn test --coverage true
+      - name: 🧪 Tests
+        run: yarn test:coverage

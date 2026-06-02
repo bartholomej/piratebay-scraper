@@ -11,7 +11,7 @@ export const fetchPage = async (query: string, provider?: TPBProvider): Promise<
       throw new Error(`piratebay-scraper: Bad response ${response.status} for url: ${url}`);
     }
     return await response.text();
-  } catch (e) {
+  } catch {
     throw new Error(`piratebay-scraper: Page ${url} not found!`);
   }
 };
