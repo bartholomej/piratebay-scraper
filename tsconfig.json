@@ -3,15 +3,15 @@
     "target": "ESNext",
     "lib": ["dom"],
     "types": ["node"],
-    "baseUrl": "./src",
     "paths": {
-      "@interfaces/*": ["interfaces/*"],
-      "@services/*": ["services/*"]
+      "@interfaces/*": ["./interfaces/*"],
+      "@services/*": ["./services/*"]
     },
     "esModuleInterop": true,
     "module": "NodeNext",
     "strictNullChecks": false,
     "sourceMap": false,
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "declaration": true,
